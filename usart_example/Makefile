@@ -12,7 +12,7 @@
 DEVICE     = atmega32
 CLOCK      = 8000000
 PROGRAMMER = -c stk500v2 -P avrdoper
-LIBDIR     = ../../lib
+LIBDIR     = ../lib
 OBJECTS    = main.o
 OBJECTS   += $(LIBDIR)/usart/buffer.o
 OBJECTS	  += $(LIBDIR)/usart/usart.o
@@ -48,6 +48,9 @@ fuse:
 
 # Xcode uses the Makefile targets "", "clean" and "install"
 install: flash
+
+# WinAVR uses the Makefile targets "", "clean" and "program"
+program: flash
 
 # if you use a bootloader, change the command below appropriately:
 load: all

@@ -1,8 +1,16 @@
-/* Project info here */
+/*
+ 
+ ATmega32 USART library example
+ 
+ Copyright 2010 Tymon Tobolski
+ Politechnika Wroclawska
+ 
+ */
+
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include "../../lib/usart/usart.h"
+#include "../lib/usart/usart.h"
 
 USART32(usb);
 
