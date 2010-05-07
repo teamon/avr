@@ -3,10 +3,10 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
-#include "../../lib/lcd/lcd.h"
+// #include "../../lib/lcd/lcd.h"
 
 
-LCD lcd;
+// LCD lcd;
 volatile int adc_value = 0;
 
 SIGNAL (SIG_ADC){
@@ -21,12 +21,16 @@ int main(void){
 	
 	sei();
 	
-	lcd << "adc: ";
+	DDRD = 0xFF;
+	
+	//lcd << "adc: ";
 	
     for(;;){
-        lcd.gotoxy(5, 0);
-		lcd << adc_value;
-		lcd << "     ";
+		PORTD = ~(1 << ((adc_value+1)/128)-1);
+		
+		//lcd.gotoxy(5, 0);
+		//lcd << adc_value;
+		//lcd << "     ";
 		_delay_ms(50);
 	}
     return 0;
