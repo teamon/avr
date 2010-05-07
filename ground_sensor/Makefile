@@ -12,9 +12,9 @@
 DEVICE     = atmega8
 CLOCK      = 8000000
 PROGRAMMER = -c stk500v2 -P avrdoper
-LIBDIR	   = ../../lib/
 OBJECTS    = main.o
-#OBJECTS	  += $(LIBDIR)lcd/lcd.o
+#LIBDIR    += ../../lib
+#OBJECTS   += $(LIBDIR)/lcd/lcd.o
 FUSES      = -U hfuse:w:0xd9:m -U lfuse:w:0x24:m
 
 # Tune the lines below only if you know what you are doing:
@@ -48,6 +48,9 @@ fuse:
 # Xcode uses the Makefile targets "", "clean" and "install"
 install: flash
 
+# WinAVR uses the Makefile targets "", "clean" and "program"
+program: flash
+
 # if you use a bootloader, change the command below appropriately:
 load: all
 	bootloadHID main.hex
@@ -69,5 +72,5 @@ main.hex: main.elf
 disasm:	main.elf
 	avr-objdump -d main.elf
 
-# cpp:
-# 	$(COMPILE) -E main.c
+preprocess:
+	$(CXX) -E main.cpp

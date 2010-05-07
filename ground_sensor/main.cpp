@@ -1,4 +1,11 @@
-/* Project info here */
+/*
+
+ QRD1114 Ground Sensord Example
+ 
+ Copyright 2010 Tymon Tobolski
+ Politechnika Wroclawska
+ 
+*/
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
