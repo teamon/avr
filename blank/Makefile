@@ -12,8 +12,8 @@
 DEVICE     = atmega8
 CLOCK      = 8000000
 PROGRAMMER = -c stk500v2 -P avrdoper
+#LIBDIR     = ../lib
 OBJECTS    = main.o
-#LIBDIR    += ../../lib
 FUSES      = -U hfuse:w:0xd9:m -U lfuse:w:0x24:m
 
 # Tune the lines below only if you know what you are doing:
